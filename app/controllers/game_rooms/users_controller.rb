@@ -4,9 +4,9 @@ module GameRooms
       render json: {
         player: user,
         friend: friend,
-        title: game_room_title,
-        address: '',
-        end_date: '',
+        title: game_room.title,
+        address: game_room.address,
+        time: game_room.end_date,
         score: user.score
       }, status: 200
     end
@@ -17,8 +17,8 @@ module GameRooms
       @user ||= User.find(params[:id])
     end
 
-    def game_room_title
-      @game_room_title ||= user.game_room.title
+    def game_room
+      @game_room_title ||= user.game_room
     end
 
     def friend

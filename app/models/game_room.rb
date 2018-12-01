@@ -6,6 +6,9 @@
 #  access_key :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  title      :string
+#  address    :string
+#  end_date   :string
 #
 
 class GameRoom < ApplicationRecord

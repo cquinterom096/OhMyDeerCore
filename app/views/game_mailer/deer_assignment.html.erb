@@ -1,3 +1,19 @@
-<h1> HEY HEY </h1>
-<p>Your target Deer is <%= @friend.name %></p>
-<%= link_to "deer_website/game_room/#{@friend.id}", "www.somewebsite.com" %>
+<div class="w3-container w3-border w3-round-large w3-centercard card">
+  <div class="row w3-center">
+    <img class="titleimage" src="https://i.imgur.com/MkqePzQ.png" />
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <h4><b><%= @game_room.title.capitalize %></b></h4>
+      <p><b>En esta navidad, eres el santa secreto de <%= @friend.name %></b></p>
+      <p>Para seguir el juego dia a dia, entra al GameRoom</p>
+      <button class="w3-button w3-round-xxlarge fontlink buttonlink">
+        <%= link_to "Enter", @url, class: 'w3-button w3-round-xxlarge fontlink buttonlink' %>
+      </button>
+    </div>
+    <div class="column">
+      <img class="titleimage" src="https://i.imgur.com/dWbW4AF.png" />
+    </div>
+  </div>
+</div>

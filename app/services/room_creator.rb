@@ -1,9 +1,11 @@
 class RoomCreator
-  attr_reader :users, :players, :title
+  attr_reader :users, :players, :title, :time, :address
 
   def initialize(data)
     @users = data[:players]
     @title = data[:title]
+    @address = data[:address]
+    @time = data[:time]
     @players = []
   end
 
@@ -19,7 +21,7 @@ class RoomCreator
   end
 
   def game_room
-    @game_room ||= GameRoom.create(title: title)
+    @game_room ||= GameRoom.create(title: title, address: address, end_date: time)
   end
 
   def setup_game_room

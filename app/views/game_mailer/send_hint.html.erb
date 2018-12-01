@@ -1,4 +1,20 @@
-<h1>MANDA UN PISTA</h1>
+<div class="w3-container w3-border w3-round-large w3-centercard card">
+  <div class="row w3-center">
+    <img class="titleimage" src="https://i.imgur.com/MkqePzQ.png" />
+  </div>
 
-<p>The message is: <%= @hint.message %></p>
-<p>The link is: <%= @hint.link %></p>
+  <div class="row">
+    <div class="column">
+      <h4><b>Tu pista es: </b></h4>
+      <p><b><%= @hint.message %></b></p>
+      <p>Para seguir el juego dia a dia, entra al GameRoom</p>
+      <button class="w3-button w3-round-xxlarge fontlink buttonlink">
+        <%= link_to "Enter", @url, class: 'w3-button w3-round-xxlarge fontlink buttonlink' %>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="column">
+  <%= image_tag(@hint.link, class: 'titleimage') %>
+</div>

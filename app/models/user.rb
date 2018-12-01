@@ -9,6 +9,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  deer_id      :integer
+#  score        :integer          default(0)
 #
 
 class User < ApplicationRecord
