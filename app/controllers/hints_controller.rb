@@ -1,6 +1,11 @@
 class HintsController < ApplicationController
   def create
-
+    @hint_id = HintCreator.new(user, friend, hint).execute
+    if @hint_id
+      render json: 'success', status: 200
+    else
+      render json: 'error', status: 406
+    end
   end
 
   private
@@ -13,7 +18,7 @@ class HintsController < ApplicationController
     @user ||= User.find(params[:user_id])
   end
 
-  def message
+  def hint
     @message ||= params[:hint]
   end
 end
