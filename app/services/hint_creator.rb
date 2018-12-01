@@ -29,7 +29,7 @@ class HintCreator
   end
 
   def increase_score
-    user.score += 10
-    user.save
+    user.score = user.score + 10
+    user.save!
   end
 end

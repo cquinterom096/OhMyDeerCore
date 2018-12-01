@@ -22,11 +22,15 @@ class DeerShuffler
 
   def assign_friends
     if participants_ids.length.even?
-      users.each_with_index { |user, index| user.update(deer_id: participants_ids[index]) }
+      users.each_with_index { |user, index| user.update(deer_id: reversed_list[index]) }
     else
-      participants_ids[middle_element_position], participants_ids[0] =
-        participants_ids.first, participants_ids[middle_element_position]
-      users.each_with_index { |user, index| user.update(deer_id: participants_ids[index]) }
+      participants = reversed_list.dup
+      t1 = participants[0]
+      t2 = participants[middle_element_position]
+      participants[0] = t2
+      participants[middle_element_position] = participants.first
+      #participants[middle_element_position], participants[0] = participants.first, participants[middle_element_position]
+      users.each_with_index { |user, index| user.update(deer_id: participants[index]) }
     end
   end
 end

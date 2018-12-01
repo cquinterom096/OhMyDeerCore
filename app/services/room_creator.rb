@@ -11,7 +11,7 @@ class RoomCreator
 
   def execute
     setup_game_room
-    players.first.id
+    players.find { |user| user.owner == true }.id
   end
 
   private
@@ -32,7 +32,11 @@ class RoomCreator
 
   def setup_participants
     users.each do |user|
-      @players << game_room.users.create(name: user[:name], email: user[:email])
+      if user[:owner]
+        @players << game_room.users.create(name: user[:name], email: user[:email], owner: true)
+      else
+        @players << game_room.users.create(name: user[:name], email: user[:email], owner: false)
+      end
     end
   end
 
