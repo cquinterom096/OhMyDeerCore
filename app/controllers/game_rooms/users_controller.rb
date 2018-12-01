@@ -5,6 +5,8 @@ module GameRooms
         player: user,
         friend: friend,
         title: game_room_title,
+        address: '',
+        end_date: '',
         score: user.score
       }, status: 200
     end

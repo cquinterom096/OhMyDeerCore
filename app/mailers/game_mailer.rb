@@ -7,7 +7,7 @@ class GameMailer < ApplicationMailer
 
   def send_hint(user_id, friend_id, hint_id)
     @user = User.find(user_id)
-    @friend = User.find(friend)
+    @friend = User.find(friend_id)
     @hint = Hint.find(hint_id)
     mail(to: @friend.email, subject: 'TU RENO SECRETO TE ENVIÓ ALGO')
   end
