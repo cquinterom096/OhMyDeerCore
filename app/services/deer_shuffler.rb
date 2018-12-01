@@ -1,8 +1,8 @@
 class DeerShuffler
-  attr_reader :user, :participants_ids
+  attr_reader :users, :participants_ids
 
   def initialize(users, participants_ids)
-    @user = users
+    @users = users
     @participants_ids = participants_ids
   end
 
@@ -24,7 +24,7 @@ class DeerShuffler
     if participants_ids.length.even?
       users.each_with_index { |user, index| user.update(deer_id: participants_ids[index]) }
     else
-      participants_ids[middle_element_position], participants_ids.first =
+      participants_ids[middle_element_position], participants_ids[0] =
         participants_ids.first, participants_ids[middle_element_position]
       users.each_with_index { |user, index| user.update(deer_id: participants_ids[index]) }
     end

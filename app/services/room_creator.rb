@@ -1,20 +1,25 @@
 class RoomCreator
-  attr_reader :users, :players
+  attr_reader :users, :players, :title
 
-  def initialize(users)
-    @users = users
+  def initialize(data)
+    @users = data[:players]
+    @title = data[:title]
     @players = []
   end
 
   def execute
     setup_game_room
-    players.first
+    players.first.id
   end
 
   private
 
+  def friend
+    @friend ||= players.find { |user| user.deer_id == players.first.id }
+  end
+
   def game_room
-    @game_room ||= GameRoom.create
+    @game_room ||= GameRoom.create(title: title)
   end
 
   def setup_game_room
@@ -35,9 +40,9 @@ class RoomCreator
 
   def send_email_to_users
     @players.each do |user|
-      GameMailer.with(
-        user_id: user.id, friend_id: user.deer_id
-      ).deer_assignment.deliver_later
+      GameMailer.deer_assignment(
+        user.id, user.deer_id
+      ).deliver_later
     end
   end
 end

@@ -1,12 +1,8 @@
 class GameRoomsController < ApplicationController
   def create
-    room_owner = RoomCreator.new(room_params[:users]).execute
-    render json: room_owner, status: 200
-  end
-
-  private
-
-  def room_params
-    params.require(:users)
+    room_owner = RoomCreator.new(params).execute
+    render json: {
+      player: room_owner
+    }, status: 200
   end
 end
