@@ -4,7 +4,8 @@ module GameRooms
       render json: {
         player: user,
         friend: friend,
-        title: game_room_title
+        title: game_room_title,
+        score: user.score
       }, status: 200
     end
 
