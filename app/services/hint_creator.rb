@@ -4,7 +4,7 @@ class HintCreator
   def initialize(user, friend, hint_body)
     @user = user
     @friend = friend
-    @hint_body
+    @hint_body = hint_body
   end
 
   def execute

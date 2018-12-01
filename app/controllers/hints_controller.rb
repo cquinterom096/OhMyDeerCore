@@ -19,6 +19,6 @@ class HintsController < ApplicationController
   end
 
   def hint
-    @message ||= params[:hint]
+    @hint ||= params[:hint]
   end
 end
