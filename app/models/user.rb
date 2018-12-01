@@ -8,6 +8,7 @@
 #  email        :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  deer_id      :integer
 #
 
 class User < ApplicationRecord

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/slave_deers"
 
   resources :game_rooms, only: [:create]
-  resources :users, only: [:show]
+  namespace :game_room do
+    resources :users, only: [:show]
+  end
   resources :hints, only: [:create]
 end
